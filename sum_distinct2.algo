@@ -1,0 +1,42 @@
+ALGORITHM sumarrays
+VAR
+harr : HASH_TABLE<INTEGER,INTEGER>;
+i,j count,sum : INTEGER;
+arr1 :ARRAY_OF INTEGER [10];
+arr2 :ARRAY_OF INTEGER [5];
+BEGIN 
+READ (arr1);
+READ (arr2);
+FOR i FROM 0 TO arr1.length -1 DO
+IF (harr.lookup(arr1[i]) = TRUE) THEN
+count := harr.get(arr1[i]);
+harr.insert(arr1[i],count+1);
+ELSE
+harr.insert(arr1[i],1);
+END_IF
+END_FOR
+FOR j FROM 0 TO arr2.length -1 DO
+IF (harr.lookup(arr2[i]) = TRUE) THEN
+count := harr.get(arr2[j]);
+harr.insert(arr2[j],count+1);
+ELSE
+harr.insert(arr2[j],1);
+END_IF
+END_FOR
+FOR i FROM 0 TO arr1.length -1 DO
+IF (harr.get(arr1[i]) = 1) THEN
+sum := sum + arr[[i];
+BREAK;
+END_IF
+END_FOR
+FOR j FROM 0 TO arr2.length -1 DO
+IF (harr.get(arr2[j]) = 1) THEN
+sum := sum + arr2[[j];
+BREAK;
+END_IF
+END_FOR
+Write(sum);
+END
+
+
+

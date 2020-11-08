@@ -1,0 +1,26 @@
+ALGORITHM algorithm_LDS
+VAR    
+arr1 : ARRAY_OF INTEGER[10];
+arr2 : ARRAY_OF INTEGER[5];
+i ,j,a,b ,sum :INTEGER:=0;    
+BEGIN
+READ (arr1);
+READ (arr2);
+FOR i FROM 0 TO arr1.length DO        
+WHILE (arr1[i]<>arr2[j] AND j< arr2.length) DO            
+j := j+1        
+END_WHILE        
+IF (j=arr2.length) THEN            
+sum:=sum +arr1[i] ;       
+END_IF            
+END_FOR
+FOR a FROM 0 TO arr2.length DO        
+WHILE (arr2[a]<>arr1[b] AND  b < arr1.length) DO            
+b:=b+1;        
+END_WHILE        
+IF (b=arr1.length) THEN            
+sum:=sum +arr2[a] ;       
+END_IF        
+END_FOR
+write(sum) ;
+END
